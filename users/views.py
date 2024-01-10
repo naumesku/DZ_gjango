@@ -1,20 +1,16 @@
 import random
-from django.core.signing import BadSignature, Signer
-from django.contrib.auth.forms import UserCreationForm
 from django.core.mail import send_mail
 
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import  redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, UpdateView
 
 from config import settings
-from users.config import symbols
 from users.forms import UserRegisterForm, UserForm
 from users.models import User
 from users.utils import token_generate, email_token
 
 
-# Create your views here.
 class RegisterView(CreateView):
     model = User
     form_class = UserRegisterForm
