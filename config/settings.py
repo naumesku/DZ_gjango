@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -82,8 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'project5',
         'USER': 'postgres',
-        'PASSWORD': 'qqqzzz'
-,
+        'PASSWORD': 'qqqzzz',
     }
 }
 
@@ -144,3 +145,5 @@ EMAIL_PORT = 465
 EMAIL_HOST_USER = 'black.aid@yandex.ru'
 EMAIL_HOST_PASSWORD = '25041952@priL'
 EMAIL_USE_SSL = True
+
+LOGIN_URL = '/users/'

@@ -13,6 +13,7 @@ class Product(models.Model):
     price = models.IntegerField(verbose_name='цена за покупку')
     date_create = models.DateTimeField(auto_now_add=True, verbose_name='дата создания')
     date_change = models.DateTimeField(auto_now_add=True, verbose_name='дата последнего изменения')
+    is_published = models.BooleanField(default=False, verbose_name='публикация')
 
     user_own = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, **NULLABLE, verbose_name="пользователь")
 
@@ -22,8 +23,12 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'продукт'
         verbose_name_plural = 'продукты'
-
-
+        permissions = [
+            (
+                'set_published',
+                'Can publish posts'
+            )
+         ]
 
 
 class Category(models.Model):
@@ -37,6 +42,7 @@ class Category(models.Model):
         verbose_name = 'категория'
         verbose_name_plural = 'категории'
 
+
 class Version(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     version_number = models.PositiveIntegerField(verbose_name='номер версии')
@@ -49,4 +55,3 @@ class Version(models.Model):
     class Meta:
         verbose_name = 'версия'
         verbose_name_plural = 'версии'
-
