@@ -1,6 +1,6 @@
 from django.urls import path, include
 from blog.apps import BlogConfig
-from blog.view import BlogListView, BlogCreateView, BlogDeleteView, BlogDetailView, BlogUpdateView, BlogAllListView, \
+from blog.views import BlogListView, BlogCreateView, BlogDeleteView, BlogDetailView, BlogUpdateView, BlogAllListView, \
     toggle_published
 
 app_name = BlogConfig.name
