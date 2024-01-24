@@ -1,10 +1,6 @@
 from django.contrib import admin
 
-from product.models import Product, Category, Version
-
-
-# Register your models here.
-# admin.site.register(Student)
+from product.models import Product, Version, Category
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
