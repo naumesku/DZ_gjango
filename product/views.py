@@ -7,11 +7,17 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from product.forms import ProductForm, VersionForm, ModeratorForm
-from product.models import Product, Version
+from product.models import Product, Version, Category
+from product.services import get_cached_category
 
 
 class ProductListView(ListView):
     model = Product
+
+class CategoryListView(ListView):
+    model = Category
+    def get_queryset(self):
+        return get_cached_category()
 
 def contacts(request):
     context = {
